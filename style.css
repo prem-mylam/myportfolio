@@ -91,4 +91,7 @@ footer a {
     .cad-grid {
         grid-template-columns: 1fr; /* Single column for small screens */
     }
+    h4 span{
+        display: none;
+    }
 }
