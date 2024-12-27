@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Premsai Mylam's CAD Models" />
+    <title>CAD Models - Premsai Mylam</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Include Model Viewer Library -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+    <header id="banner">
+        <h2><a href="index.html">Premsai Mylam</a></h2>
+    </header>
+
+    <main>
+        <div class="project">
+            <h4>CAD Design Projects</h4>
+            <div id="cadGrid" class="cad-grid"></div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <p>
+            <a href="projects.html">Projects</a> •
+            <a href="work.html">Experience</a> •
+            <a href="https://github.com/premsaimylam">Github</a> •
+            <a href="https://linkedin.com/in/premsaimylam">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script>
+        function createCadModels() {
+            const models = [
+                {img:"models/cad2.glb", disp:"Cohda device"},
+                {img:"models/scene2.1.glb",disp:"ESP32-S3 4.3 inches"},
+                {img:"models/scene2.glb",disp:"STM NUCLEO"},
+                {img:"models/cad3.glb",disp:"ESP32-S3 1.28 inches"},
+                {img:"models/cad1.glb",disp:"Bike LED Alert Indicators"}
+            ];
+            const container = document.getElementById('cadGrid');
+
+            models.forEach((model,index) => {
+                const modelSection = document.createElement('div');
+                modelSection.className = 'cad-item';
+                modelSection.innerHTML = `
+                    <model-viewer 
+                        src="${model.img}" 
+                        alt="CAD Model ${index + 1}"
+                        auto-rotate 
+                        camera-controls 
+                        shadow-intensity="1" 
+                        class="cad-viewer">
+                    </model-viewer>
+                    <p>${model.disp}</p>
+                `;
+                container.appendChild(modelSection);
+            });
+        }
+
+        window.onload = createCadModels;
+    </script>
+</body>
+</html>
